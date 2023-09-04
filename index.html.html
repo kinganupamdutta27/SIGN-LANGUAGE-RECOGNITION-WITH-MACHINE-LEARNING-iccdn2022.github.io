@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Recognition: ICCDN 2022 Research Publication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #09223b;
+        }
+
+        header {
+            background-color: #0A66C2;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .author-profiles {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .author-profiles button {
+            background-color: #0A66C2;
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .author-profiles a {
+            text-decoration: none;
+            color: #0A66C2;
+        }
+
+        .author-profiles button:hover,
+        .author-profiles button:focus {
+            background-color: #16437E;
+        }
+
+        .author-profiles {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    
+        .author-profiles a {
+            text-decoration: none;
+            margin-right: 10px;
+            color: #333;
+        }
+        
+        /* CSS */
+        .button-18 {
+        align-items: center;
+        background-color: #0A66C2;
+        border: 0;
+        border-radius: 100px;
+        box-sizing: border-box;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen,
+        "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande",
+        Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        justify-content: center;
+        line-height: 20px;
+        max-width: auto;
+        min-height: 50px;
+        min-width: 80px;
+        overflow: hidden;
+        padding: 0px;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        touch-action: manipulation;
+        transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+        user-select: none;
+        -webkit-user-select: none;
+        vertical-align: middle;
+        }
+        
+        .button-18:hover,
+        .button-18:focus {
+        background-color: #16437E;
+        color: #ffffff;
+        }
+        
+        .button-18:active {
+        background: #09223b;
+        color: rgb(255, 255, 255, .7);
+        }
+        
+        .button-18:disabled {
+        cursor: not-allowed;
+        background: rgba(0, 0, 0, .08);
+        color: rgba(0, 0, 0, .3);
+        }
+        td{
+            width: auto;
+            height: auto;
+            padding: 5px 5px;
+        }
+        .npf_row{
+            align-items: center;
+            text-align: center;
+        }
+        img{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        } 
+        img:hover{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+        }
+        #intro{
+            text-align: justify;
+            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Tektur', cursive;
+            background-color: aqua;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        #intro:hover{
+           box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
+        }
+        #Achievements{
+            text-align: justify;
+            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Tektur', cursive;
+            margin-top: 10px;
+            background-color: aqua;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        #Achievements:hover{
+             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
+        }
+        #Conclusion{
+            text-align: justify;
+            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Tektur', cursive;
+            margin-top: 10px;
+            background-color: aqua;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        #Conclusion:hover{
+             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
+        }
+        #ICCDN{
+            text-align: justify;
+            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Tektur', cursive;
+            margin-top: 10px;
+            background-color: aqua;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        #ICCDN:hover{
+             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&family=Tektur:wght@500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Sign Language Recognition with Machine Learning</h1>
+    </header>
+    <div class="container">
+     <section id="intro"> 
+        <h2>Introduction</h2>
+    <p>Welcome to our article highlighting a significant breakthrough in machine learning for sign language recognition. Our
+        research, initially presented at the prestigious International Conference on Communication, Devices and Networking
+        (ICCDN) 2022, has now been successfully published in the esteemed journal Advances in Communication, Devices and
+        Networking, published by Springer Nature.</p>
+    <p>Title: "Sign Language Recognition with Machine Learning: A Breakthrough Approach" </p>
+    <p>Conference: International Conference on Communication, Devices and Networking (ICCDN) 2022 </p>
+    <p>Published in: Springer Nature's Advances in Communication, Devices and Networking </p>
+    <p>Publication pages: 297&ndash;308</p>
+    <p>Article link :<a
+            href="https://t.umblr.com/redirect?z=https%3A%2F%2Flink.springer.com%2Fchapter%2F10.1007%2F978-981-99-1983-3_29%23citeas&amp;t=YjAyYjg3MTQyYTU0MDQ0MjJhNzZlODY5NjRkYzc4M2YyNWM5M2M4NSw3MmJmY2IwOTQ3MWU3NDg2NjE5ODIzMWE5YTZiOGMxNjAwZjU1Y2Vm&amp;ts=1688931321">
+            https://link.springer.com/chapter/10.1007/978-981-99-1983-3_29#citeas</a></p>
+    </section>
+
+    <section id="Achievements">
+    <h2>Achievements and Acknowledgments</h2>
+    <p>We owe this remarkable achievement to the tireless dedication and group efforts of our talented team members. Their
+        commitment to pushing technological boundaries and enhancing accessibility for the deaf population has propelled our
+        research to new heights.</p>
+    <p>We express our heartfelt gratitude to our project guides, Prof. Debasree Mitra and Dr. (Prof.) Pranati Rakshit, for
+        their unwavering support, expertise, guidance, and encouragement. Their mentorship helped us overcome challenges and
+        achieve our goals, making this project a resounding success.</p>
+    <p>We extend our appreciation to the skilled and dedicated individuals who contributed significantly to this milestone.
+        Special recognition goes to Shubhranil Mazumder, Sanjoy Banik, Suman Manna, and @Sutapa Das for their tireless work
+        and unwavering pursuit of quality.</p>
+    </section>
+    <section id="ICCDN">
+    <h2>ICCDN 2022 and Springer Nature Publication</h2>
+    <p>We would like to convey our heartfelt gratitude to the ICCDN 2022 organizing team for providing us with a global
+        platform to share our findings. The informative discussions and valuable comments during the conference greatly
+        improved our work and prepared it for publication.</p>
+    <p>We are honored that Springer Nature recognized the importance of our research and chose to publish our paper in
+        Advances in Communication, Devices and Networking. This prestigious journal allows us to share our research with
+        scientists, industry experts, and field enthusiasts, contributing to the advancement of the field.</p>
+    </section>
+    <section id="Conclusion">
+        <h2>Conclusion</h2>
+    <p>Kudos to the entire team for this outstanding accomplishment! We remain committed to pushing limits, dismantling
+        barriers, and leveraging technology to advance society. Together, we can build a society where communication knows
+        no boundaries. Join us in celebrating this breakthrough in machine learning for sign language recognition.</p>
+    <div class="npf_row">
+        <img srcset="https://64.media.tumblr.com/ced356b829f0820bb00f17c1c341ead3/02ec56e03392851a-76/s2048x3072/3b931d61068ba65e7d098a1a9d6961953fecf41f.pnj 2048w,
+                    https://64.media.tumblr.com/ced356b829f0820bb00f17c1c341ead3/02ec56e03392851a-76/s1280x1920/3b931d61068ba65e7d098a1a9d6961953fecf41f.pnj 1280w,
+                    https://64.media.tumblr.com/ced356b829f0820bb00f17c1c341ead3/02ec56e03392851a-76/s827x1240/3b931d61068ba65e7d098a1a9d6961953fecf41f.pnj 827w"
+            sizes="(max-width: 2048px) 100vw, 2048px"
+            src="https://64.media.tumblr.com/ced356b829f0820bb00f17c1c341ead3/02ec56e03392851a-76/s2048x3072/3b931d61068ba65e7d098a1a9d6961953fecf41f.pnj"
+            alt="Optimized Image">
+    </div>
+    <div class="npf_row">
+        <figure class="tmblr-full" data-orig-height="1246" data-orig-width="827"><img
+                src="https://64.media.tumblr.com/547e323b92f46b83d0bb59be239b347a/02ec56e03392851a-f8/s1280x1920/f2ad7ac174b5b5f9b8e885a15411e638c097c11c.pnj"
+                data-orig-height="1246" data-orig-width="827"
+                srcset="https://64.media.tumblr.com/547e323b92f46b83d0bb59be239b347a/02ec56e03392851a-f8/s1280x1920/f2ad7ac174b5b5f9b8e885a15411e638c097c11c.pnj 827w"
+                sizes="(max-width: 827px) 100vw, 827px"></figure>
+    </div>
+    </section>
+    <div>
+    <hr>
+        <h2 style="color: antiquewhite;">Authors and Links</h2><hr>
+        <table>
+            <tbody>
+                <tr>
+                    <td><a href="https://www.linkedin.com/in/pranati-rakshit-07a2571aa/" target="_blank"><button class="button-18"
+                        role="button"><i class="fa-brands fa-linkedin fa-xl"></i>&nbsp; Pranati Rakshit</button></a></td>
+                    <td><a href="https://www.linkedin.com/in/debasree-mitra-01091528/" target="_blank"><button class="button-18"
+                        role="button"><i class="fa-brands fa-linkedin fa-xl"></i> &nbsp; Debasree Mitra</button></a></td>
+                    <td><a href="https://www.linkedin.com/in/shubhranil-mazumder-b60544212/" target="_blank"><button class="button-18"
+                        role="button"><i class="fa-brands fa-linkedin fa-xl"></i> &nbsp; Shubhranil Mazumder</button></a></td>
+                    <td> <a href="https://www.linkedin.com/in/kinganupamdutta/" target="_blank"><button class="button-18" role="button"><i
+                            class="fa-brands fa-linkedin fa-xl"></i> &nbsp; Anupam Dutta</button></a></td>
+                    <td><a href="https://www.linkedin.com/in/suman-manna-215b4a246/" target="_blank"><button class="button-18"
+                        role="button"><i class="fa-brands fa-linkedin fa-xl"></i> &nbsp; Suman Manna</button></a></td>
+                    <td><a href="link_to_sutapa_das_profile"><button class="button-18" role="button"><i class="fa-brands fa-linkedin fa-xl"></i>
+                        &nbsp; Sutapa Das</button></a></td>
+                    <td><a href="https://www.linkedin.com/in/sanjoy-banik-a20b9b212/" target="_blank"><button class="button-18"
+                        role="button"><i class="fa-brands fa-linkedin fa-xl"></i> &nbsp; Sanjoy Banik</button></a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="mailto:pranati.rakshit@jiscollege.ac.in " target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i>&nbsp; Pranati Rakshit</button></a></td>
+                    <td><a href="mailto:debasree.mitra@jiscollege.ac.in" target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i> &nbsp; Debasree Mitra</button></a></td>
+                    <td><a href="mailto:onlysubhranil1998@gmail.com" target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i> &nbsp; Shubhranil Mazumder</button></a></td>
+                    <td><a href="mailto:anupamdutta.kalyani@yahoo.com" target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i> &nbsp; Anupam Dutta</button></a></td>
+                    <td><a href="mailto:suman.manna.2023@gmail.com" target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i> &nbsp; Suman Manna</button></a></td>
+                    <td><a href="mailto:itssutapa.2001@gmail.com"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i>
+                                &nbsp; Sutapa Das</button></a></td>
+                    <td><a href="mailto:sanjoybanik979@gmail.com" target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-envelope"></i> &nbsp; Sanjoy Banik</button></a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="https://link.springer.com/chapter/10.1007/978-981-99-1983-3_29#citeas" target="_blank"><button
+                                class="button-18" role="button"><img src="https://www.springer.com/public/images/springer-logo.svg"
+                                    alt="Springer LOGO" width="60px" height="40px"> &nbsp; Springer Link</button></a></td>
+                    <td><a href="https://www.jiscollege.ac.in/" target="_blank"><button class="button-18" role="button"><img
+                                    src="https://upload.wikimedia.org/wikipedia/en/0/06/JIS_College_of_Engineering_Logo.png"
+                                    alt="JISCE LOGO" width="30px" height="30px"> &nbsp; JISCE</button></a></td>
+                    <td><a href="https://www.iccdn.org.in/" target="_blank"><button class="button-18" role="button"><i
+                                    class="fa-solid fa-graduation-cap"></i> &nbsp; ICCDN</button></a></td>
+                    <td><a href="https://smu.edu.in/smit.html/" target="_blank"><button class="button-18" role="button"><img
+                                    src="https://smu.edu.in//etc.clientlibs/manipal-platform/clientlibs/manipal-platform/global/resources/images/favicon.ico"
+                                    alt="SMIT LOGO" width="30px" height="30px"> &nbsp; SMIT</button></a></td>
+                    <td><a href="https://www.aicte-india.org/" target="_blank"><button class="button-18" role="button"><img
+                                    src="https://upload.wikimedia.org/wikipedia/en/e/eb/All_India_Council_for_Technical_Education_logo.png"
+                                    alt="AICTE LOGO" width="30px" height="30px"> &nbsp; AICTE</button></a></td>
+                    <td><a href="https://www.ugc.gov.in/" target="_blank"><button class="button-18" role="button"><img
+                                    src="https://upload.wikimedia.org/wikipedia/en/4/4e/UGC_India_Logo.png" alt="UGC LOGO" width="30px"
+                                    height="30px"> &nbsp; UGC</button></a></td>
+                
+                </tr>
+                
+            </tbody>
+        </table>
+
+        </div>
+ 
+       
+    </div>
+</body>
+
+</html>
