@@ -19,15 +19,38 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #09223b;
+            background-image: url(https://i.gifer.com/4NB4.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         header {
-            background-color: #82c1ff;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	        background-size: auto;
+	        animation: gradient 15s ease infinite;
+	        height: auto;
+            /*background-color: white ;
+            background-image: url(https://i.gifer.com/QD5k.gif);
+            background-position: center;
+            background-repeat:no-repeat;
+            background-size: cover;*/
             color: #fff;
             text-align: center;
             padding: 20px 0;
         }
+        @keyframes gradient {
+	    0% {
+		background-position: 0% 50%;
+	    }
+	    50% {
+		background-position: 100% 50%;
+	    }
+	    100% {
+		background-position: 0% 50%;
+	    }
+        }
+
 
         .container {
             max-width: 1200px;
@@ -138,6 +161,7 @@
             width: auto;
             height: auto;
             padding: 5px 5px;
+            font-weight: bold;
         }
         .npf_row{
             align-items: center;
@@ -213,6 +237,9 @@
         #ICCDN:hover{
              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
         }
+        .hide{
+            display: none;
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,6 +267,13 @@
                                     height="75px" alt="smit logo" style="padding: 10px 10px;"></td>
                     <td style="text-align: center; align-items: center; padding: 0 5px;"><img src="springerlink-6c9a864b59.svg" height="75px"
                             alt="smit logo" style="padding: 10px 10px;"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr id="time1">
+                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -420,6 +454,29 @@
  
        
     </div>
+    <script>
+        function timeGet(){
+            const Time = new Date();
+            const Hour = Time.getHours();
+            const Min = Time.getMinutes();
+            const Sec = Time.getSeconds();
+            const mil = Time.getMilliseconds();
+            const ofset = Time.getTimezoneOffset();
+            let tt = document.getElementById("time1");
+
+            let h = Hour>12 ? Hour%12 : Hour;
+            h = h<10? ('0'+h) : h;
+            let m = Min < 10 ? ('0' + Min) : Min;
+            let s = Sec<10 ? ('0'+Sec) : Sec;
+            let ap = Hour<12 ? "AM" : "PM";
+            let ih = `<td>Time: </td><td>${h}</td><td>:</td><td>${m}</td><td>:</td><td>${s}</td> <td>${ap}</td> <td>${mil}</td> <td>${ofset}</td>`;
+            tt.innerHTML = ih;
+        }
+        setInterval(()=>{
+            timeGet();
+        },1);
+       
+    </script>
 </body>
 
 </html>
